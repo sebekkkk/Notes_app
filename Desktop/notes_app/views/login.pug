@@ -1,0 +1,77 @@
+doctype html
+html(lang="pl")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Logowanie
+    link(href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500&display=swap" rel="stylesheet")
+    style.
+      /* Globalne style */
+      body {
+        font-family: 'Helvetica', sans-serif;
+        background-color: #f5f5f7;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #0071e3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #005bb5;
+      }
+
+      .link {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .link a {
+        color: #0071e3;
+        text-decoration: none;
+      }
+
+  body
+    .form-container
+      h1 Logowanie
+      form(action="/auth/login" method="POST")
+        input(type="text" name="email" class="input-field" placeholder="Email" required)
+        input(type="password" name="password" class="input-field" placeholder="Hasło" required)
+        button(type="submit" class="btn") Zaloguj się
+      .link
+        | Nie masz jeszcze konta? 
+        a(href="/register") Zarejestruj się

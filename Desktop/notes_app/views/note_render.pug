@@ -1,0 +1,163 @@
+doctype html
+html(lang="pl")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Wyświetlanie Notatki
+    link(href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500&display=swap" rel="stylesheet")
+    style.
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Helvetica', sans-serif;
+        background-color: #f5f5f7;
+        color: #333;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #0071e3;
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+        margin: 0;
+      }
+
+      .container {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .note-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .field {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .field label {
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .field input,
+      .field textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        color: #333;
+        resize: none;
+      }
+
+      .field input[readonly],
+      .field textarea[readonly] {
+        background-color: #f5f5f7;
+        color: #777;
+        cursor: not-allowed;
+      }
+
+      .buttons {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #0071e3;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        margin: 10px;
+      }
+
+      .button:hover {
+        background-color: #005bb5;
+        transform: translateY(-2px);
+      }
+
+      .button:active {
+        background-color: #004a99;
+        transform: translateY(0);
+      }
+
+      footer {
+        background-color: #0071e3;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 0.9rem;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .field label {
+          font-size: 1rem;
+        }
+
+        .field input,
+        .field textarea {
+          font-size: 0.9rem;
+        }
+      }
+  body
+    header
+      h1 Wyświetlanie Notatki
+
+    .container
+      .note-container
+        .field
+          label(for="title") Tytuł
+          input(type="text" id="title" value=title readonly)
+        .field
+          label(for="content") Treść
+          textarea(id="content" readonly style="height: auto;")= content
+        .field
+          label(for="creation-date") Data utworzenia
+          input(type="text" id="creation-date" value=creationDate readonly)
+      .buttons
+        a.button(href="/dashboard") Powrót do Dashboard
+
+    footer
+      p &copy; 2024 Aplikacja do Notatek. Wszystkie prawa zastrzeżone. Koty są super!
+
+    script.
+      // Automatyczne dopasowanie wysokości pola textarea do zawartości
+      const textarea = document.getElementById('content');
+      textarea.style.height = `${textarea.scrollHeight}px`;
