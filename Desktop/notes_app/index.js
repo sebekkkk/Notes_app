@@ -23,14 +23,14 @@ const PORT = 8080
 
 //sessions
 app.use(session({
-    secret: "{)Lm(2Y2;9b7!oRTDk{J(sy5yj=SJ!.)B~5G]gQ9oN$!A$ocV[",
+    secret: "secret",
     cookie: {maxAge: 1000 * 60 * 60 * 24},
     saveUninitialized: false,
 }))
 
 //database connection
 
-mongoose.connect('mongodb://localhost:27017/notes-app',{
+mongoose.connect('mongodbUrl',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
